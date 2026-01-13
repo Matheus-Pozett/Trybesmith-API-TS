@@ -15,4 +15,13 @@ describe('ProductsService', function () {
 
     expect(result).to.have.deep.eq(productInstance.dataValues);
   });
+
+  it('Lista produtos', async function() {
+    const productsInstance = productsMocks.findAll.map((p) => ProductModel.build(p));
+    sinon.stub(ProductModel, 'findAll').resolves(productsInstance);
+
+    const result = await productsService.listAll();
+
+    expect(result).to.have.deep.eq(productsMocks.findAll);
+  });
 });
