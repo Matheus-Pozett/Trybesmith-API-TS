@@ -13,7 +13,6 @@ describe('POST /products', function () {
     const productInstance = ProductModel.build(productsMocks.successCreated);
     sinon.stub(ProductModel, 'create').resolves(productInstance);
     const response = await chai.request(app).post('/products').send(productsMocks.successBody)
-    console.log(productInstance)
     expect(response.status).to.be.eq(201);
     expect(response.body).to.be.deep.eq(productsMocks.successCreated)
   });
