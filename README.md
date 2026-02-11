@@ -3,6 +3,7 @@
 API REST para gerenciamento de uma loja medieval fictícia, desenvolvida com **Node.js**, **TypeScript**, **Express** e **Sequelize**.
 
 Este projeto expõe endpoints para:
+
 - cadastro e listagem de produtos;
 - listagem de usuários com seus produtos;
 - autenticação com JWT.
@@ -12,6 +13,7 @@ Este projeto expõe endpoints para:
 ## 📌 Sobre o projeto
 
 A aplicação segue uma arquitetura em camadas, separando responsabilidades entre:
+
 - **Rotas** (`routes`)
 - **Controllers** (`controllers`)
 - **Services** (`services`)
@@ -47,7 +49,7 @@ Também possui testes unitários e de integração para validar os principais fl
 ### 1) Clonar o repositório
 
 ```bash
-git clone <url-do-seu-repositorio>
+git clone git@github.com:Matheus-Pozett/Trybesmith-API-TS.git
 cd Trybesmith-API-TS
 ```
 
@@ -61,14 +63,14 @@ npm install
 
 A aplicação usa as seguintes variáveis:
 
-| Variável | Valor padrão |
-|---|---|
-| `DB_USER` | `root` |
-| `DB_PASSWORD` | `password` |
-| `DB_HOST` | `localhost` |
-| `DB_PORT` | `3306` |
-| `DB_NAME` | `Trybesmith` |
-| `JWT_SECRET` | `seusecretdetoken` |
+| Variável      | Valor padrão       |
+| ------------- | ------------------ |
+| `DB_USER`     | `root`             |
+| `DB_PASSWORD` | `password`         |
+| `DB_HOST`     | `localhost`        |
+| `DB_PORT`     | `3306`             |
+| `DB_NAME`     | `Trybesmith`       |
+| `JWT_SECRET`  | `seusecretdetoken` |
 
 > Se estiver utilizando Docker Compose do projeto, essas variáveis já são configuradas no serviço da API.
 
@@ -105,9 +107,11 @@ http://localhost:3001
 ## 📚 Endpoints
 
 ## `POST /products`
+
 Cria um novo produto.
 
 ### Body
+
 ```json
 {
   "name": "Martelo de Thor",
@@ -117,6 +121,7 @@ Cria um novo produto.
 ```
 
 ### Resposta (`201`)
+
 ```json
 {
   "id": 6,
@@ -129,9 +134,11 @@ Cria um novo produto.
 ---
 
 ## `GET /products`
+
 Lista todos os produtos.
 
 ### Resposta (`200`)
+
 ```json
 [
   {
@@ -146,9 +153,11 @@ Lista todos os produtos.
 ---
 
 ## `GET /users`
+
 Lista usuários e os IDs de produtos associados.
 
 ### Resposta (`200`)
+
 ```json
 [
   {
@@ -161,9 +170,11 @@ Lista usuários e os IDs de produtos associados.
 ---
 
 ## `POST /login`
+
 Autentica um usuário e retorna token JWT.
 
 ### Body
+
 ```json
 {
   "username": "valid_user",
@@ -172,6 +183,7 @@ Autentica um usuário e retorna token JWT.
 ```
 
 ### Resposta de sucesso (`201`)
+
 ```json
 {
   "token": "<jwt_token>"
@@ -179,11 +191,15 @@ Autentica um usuário e retorna token JWT.
 ```
 
 ### Erros comuns
+
 - `400` quando `username` ou `password` não são enviados:
+
 ```json
 { "message": "\"username\" and \"password\" are required" }
 ```
+
 - `401` quando credenciais são inválidas:
+
 ```json
 { "message": "Username or password invalid" }
 ```
@@ -204,7 +220,6 @@ npm run db:reset
 
 # testes
 npm test
-npm run test:local
 npm run test:coverage
 
 # lint
@@ -216,6 +231,7 @@ npm run lint
 ## 🧪 Testes
 
 O projeto possui:
+
 - testes unitários de **services** e **controllers**;
 - testes de integração dos endpoints principais.
 
@@ -254,6 +270,4 @@ tests/
 
 ## 👨‍💻 Autor
 
-Desenvolvido por **Trybesmith-API-TS**.
-
-Se este projeto te ajudou, deixe uma ⭐ no repositório.
+Desenvolvido por [Matheus Pozett](https://www.linkedin.com/in/matheus-pozett/).
